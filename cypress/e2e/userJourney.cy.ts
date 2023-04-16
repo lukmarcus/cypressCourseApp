@@ -38,3 +38,5 @@ describe("User Journey", () => {
       .should('eq', '/')
     })  
 })
+
+export {}

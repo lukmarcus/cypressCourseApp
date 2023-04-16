@@ -1,6 +1,15 @@
 /// <reference types="cypress" />
 
-Cypress.Commands.add("getByData", (selector) => {
-    return cy.get(`[data-test=${selector}]`)
-  })
-  
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      getByData: (value: string) => Chainable<Element>
+    }
+  }
+}
+
+Cypress.Commands.add("getByData", (selector: string): void | Chainable<Element> => {
+    return cy.get(`[data-test=${selector}]`);
+  });
+
+export {}
